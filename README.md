@@ -25,7 +25,7 @@ A step by step series of examples that tell you how to get a development env run
 yarn or npm install
 ```
 
-Then cd into client folder and
+Then cd into `expat-journal` folder and
 
 ```
 yarn or npm start
