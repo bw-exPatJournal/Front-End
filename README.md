@@ -134,10 +134,6 @@ This is the “bread and butter” of the app, this is what makes your app yours
 ### Project Manager
 Justin Trombley https://github.com/brandonharris177 <br>
 
-### User Interface
-Ous Bayaa https://github.com/maggieprice <br>
-Alexander Karren https://github.com/thericktastic <br>
-
 ### Frontend
 Alexis Davalos (senior react dev): https://github.com/alexisdavalos <br>
 Jeffrey Marte (senior react dev): https://github.com/ <br>
