@@ -1,11 +1,11 @@
 # exPat Front-End
 
-#What problem does your app solve?
+# What problem does your app solve?
 - Explicitly photos for traveling. 
 - More professional instagram.
 
 
-#What is the mission statement?
+# What is the mission statement?
 - Travel Far, Travel Often.
 
 ### Installing
