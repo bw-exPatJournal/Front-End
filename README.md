@@ -4,7 +4,7 @@
 
 - **[React Developer 1](#junior-react-developers)**<br>
 - **[React Developer 2](#senior-react-developer)**<br>
-- **[Product Vision Document](#second-chance)**<br>
+- **[Product Vision Document](#exPat-Journal)**<br>
 - **[Proposal](#proposal)**<br>
 - **[UX Design](#ux-design)**<br>
 - **[Frameworks and Libraries Used](#frameworks-and-libraries)**<br>
