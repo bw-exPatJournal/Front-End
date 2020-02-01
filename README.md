@@ -1,4 +1,4 @@
-# exPat Front-End
+# exPat Journal Front-End
 
 # What problem does your app solve?
 - Explicitly photos for traveling. 
