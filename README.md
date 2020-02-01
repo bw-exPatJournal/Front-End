@@ -132,7 +132,7 @@ This is the “bread and butter” of the app, this is what makes your app yours
 
 ## Credits
 ### Project Manager
-Justin Trombley https://github.com/brandonharris177 <br>
+Brandon Harris https://github.com/brandonharris177 <br>
 
 ### Frontend
 Alexis Davalos (senior react dev): https://github.com/alexisdavalos <br>
