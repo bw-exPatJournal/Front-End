@@ -98,23 +98,6 @@ React Application | HTTP/AJAX | Sate Management | TeamWork Capabilities |
 - Styled Components
 - Redux
 
-**Backend:**
-- Bcryptjs
-- Express
-- Helmet
-- Jsonwebtoken
-- Knex
-- Sqlite3
-
-- Do APIs require you to contact its maintainer to gain access?
-  * No
-
-- Are you required to pay to use the API?
-  * No
-
-- Have you considered using Apple Frameworks? (MapKit, Healthkit, ARKit?)
-  * N/A
-  
 #### Target Audience
 
 - Who is your target audience? Be specific.
