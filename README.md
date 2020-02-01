@@ -8,6 +8,14 @@
 # What is the mission statement?
 - Travel Far, Travel Often.
 
+# MVP Rquirements
+1. User can visit site and see photos laid out in a grid
+2. Travelers can create, read, update, and delete stories and photos. (No ability to upload one's own photos for MVP)
+
+# STRETCH
+
+1. Build an image uploader into the site to allow users the ability to upload their own assets. (This will require some work with a package called Drop Zone and a service called cloudinary).
+
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
