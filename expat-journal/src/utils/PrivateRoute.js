@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import {connect} from 'react-redux';
 
 // Requirements:
 // 1. It has the same API as <Route />. (same props as Route)

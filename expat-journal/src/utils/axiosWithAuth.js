@@ -1,7 +1,7 @@
-import axios from 'axios';
+import Axios from 'axios';
 
 export const axiosWithAuth = () => {
-  return axios.create({
+  return Axios.create({
     // config object
     baseURL: 'http://localhost:5000',
     headers: {
