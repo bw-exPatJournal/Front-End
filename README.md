@@ -18,7 +18,7 @@ Then start the development environment with:
 yarn or npm start
 ```
 ## Table of Contents
-
+- **[Installation](#installing)**<br>
 - **[React Developer 1](#junior-react-developers)**<br>
 - **[React Developer 2](#senior-react-developer)**<br>
 - **[Product Vision Document](#exPat-Journal)**<br>
@@ -91,7 +91,7 @@ React Application | HTTP/AJAX | Sate Management | TeamWork Capabilities |
   * Styled Components
   
 ###### What is the URL to your wireframes?
-
+ - Figma Wireframe: https://www.figma.com/file/TmGCmqf9QuajGwMTgaaetC/Capture?node-id=266%3A800
 
   * Tool to pick with : TBD
   * Color palette choice: See figma...
