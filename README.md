@@ -5,14 +5,14 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+A step by step series of examples that tell you how to get a development environment running
 `cd` into `expat-journal` folder and install dependencies with:
 
 ```
 yarn or npm install
 ```
 
-Then start the development environment with: 
+Then launch the development environment with: 
 
 ```
 yarn or npm start
