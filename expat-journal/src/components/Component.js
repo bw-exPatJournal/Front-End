@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {fetchKanye, actionName} from '../actions'
 
 const Component = props =>{
+  console.log(props);
   const fetchKanye = props.fetchKanye;
   useEffect(()=>{
     fetchKanye();
