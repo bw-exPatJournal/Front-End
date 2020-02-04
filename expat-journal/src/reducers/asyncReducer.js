@@ -1,29 +1,31 @@
 // Create a new reducer and import actions from appropriate action file; in this case it's index.js
-import { FETCH_TOGGLE, FETCH_SUCCESS } from '../actions';
+import { FETCH_POSTS, FETCH_POSTS_SUCCESS, FETCH_POSTS_ERROR } from '../actions';
 
 const initialState = {
-  kanyeism: 'I love Redux like Kanye loves Kanye',
-  error: '',
-  isFetching: false
+	posts: [],
+	error: '',
+	isLoading: false
 }
 
 export const asyncReducer = (state = initialState, action) => {
-	switch(action.type){
-		case FETCH_TOGGLE:
+	switch (action.type) {
+		case FETCH_POSTS:
 			return {
 				...state,
-				isFetching: !state.isFetching,
-				error: action.payload ? action.payload : ''
+				isLoading: true,
 			}
-		case FETCH_SUCCESS:
+		case FETCH_POSTS_SUCCESS:
 			return {
 				...state,
-				kanyeism: action.payload,
-				isFetching: false,
-                error: ''
-            }
+				posts: action.payload,
+				isLoading: false
+			}
+		case FETCH_POSTS_ERROR:
+			return {
+				...state,
+				error: action.payload
+			}
 		default:
-				return state;
+			return state;
 	}
 }
-	

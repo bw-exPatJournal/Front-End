@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../App.scss'
+import { connect } from 'react-redux';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
 //import components
 // import FollowerCard from '../GithubFollowers/FollowersCard';
 
+//imported actions
+import { fetchPosts } from '../../actions/index';
+
 const Home = (props) => {
+    const fetchPosts = props.fetchPosts;
+    useEffect(() => {
+        fetchPosts();
+    }, [fetchPosts])
+    console.log(props)
     const ImgStyles = {
         width: '150px',
         objectFit: 'cover',
@@ -47,4 +57,17 @@ const Home = (props) => {
 
 }
 
-export default Home
+const mapStateToProps = state => {
+    return {
+        async: {
+            posts: state.async.posts,
+            error: state.async.error,
+            isLoading: state.async.isLoading
+        }
+    }
+}
+export default connect(
+    mapStateToProps,
+    //place imported actions below
+    { fetchPosts }
+)(Home);
