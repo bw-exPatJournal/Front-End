@@ -13,17 +13,37 @@
   }
 }
 
-.App-header {
-  background: url('../imgs/background.png');
-  background-size:cover;
-  background-repeat:no-repeat;
-  min-height: 100vh;
+.Header-Menu {
+  background: #F4f4f4;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  font-size: 1rem;
   color: white;
+  position:fixed;
+  width:100%;
+  height:100px;
+  box-shadow: 0px -12px 20px 11px #00000080;
+  .Menu-Form{
+    margin-right:2%;
+  }
+  .Logo{
+    display:flex;
+    align-items: center;
+    margin-left:2%;
+    img{
+      width:150px;
+    }
+  }
+  button{
+    background:#282c34;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border:none;
+    color:white;
+    font-weight:bold;
+  }
 }
 
 .App-link {
@@ -42,4 +62,87 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+/* New Styles */
+
+a{
+  text-decoration: none;
+  color:white;
+  background:#e64944;
+  width: 100%;
+  padding: 2% 5%;
+  border-radius: 50px;
+}
+form{
+  display:flex;
+}
+input{
+  background:none;
+  border:0;
+  border-radius:0;
+  outline:none;
+  font-size: 1rem;
+  font-weight:bold;
+  color:#222222;
+  padding:1%;
+  border-bottom: solid 2px #282c34;
+  margin-right: -5%;
+}
+input:focus{
+  outline:none !important;
+}
+input::placeholder{
+  color:white;
+}
+.Logo h1{
+  margin-left: 10px;
+}
+.Menu{
+  display: flex;
+  width: 15%;
+  height: 100vh;
+  justify-content: center;
+  padding: 0% 5%;
+  padding-top: 7%;
+  background:#e8ebeb;
+  color: #222222;
+}
+.MenuContentWrapper{
+  width: 20vw;
+  position:fixed;
+}
+.Followers{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+}
+.FollowerCard{
+  width: 200px;
+  font-size: .75rem;
+  padding: 1%;
+  margin: 1%;
+  border-radius: 15px;
+  background: #1b1d21bf;
+}
+.FollowerCard img:hover{
+  opacity: .75;
+  cursor: pointer;
+}
+.ContentWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1%;
+
+}
+.Wrapper{
+  display:flex;
+  justify-content: center;
+  background-color: #ffffff;
+  color:white;
+  width:100%;
+  padding-top:100px;
 }
