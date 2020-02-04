@@ -5,6 +5,7 @@ import './App.scss';
 
 //Component imports
 import Component from './Component';
+import Register from './Register/Register'
 import Login from './Login/Login';
 import Test from './Test';
 
