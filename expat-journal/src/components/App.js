@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import Component from './Component';
+import Register from './Register/Register'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Component/>
+        <Register/>
         <p>
           Edit <code>src/components/App.js</code> and save to reload.
         </p>
