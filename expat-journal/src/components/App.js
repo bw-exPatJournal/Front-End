@@ -29,8 +29,8 @@ function App() {
         </header>
       </div>
       <Switch>
-        <PrivateRoute exact path='/login' component={Component}/> 
-        <Route path='/' component={Component}/>
+        <PrivateRoute exact path='/home' component={Component}/> 
+        {/* <Route path='/' component={Component}/> */}
       </Switch>
      </Router>
   );
