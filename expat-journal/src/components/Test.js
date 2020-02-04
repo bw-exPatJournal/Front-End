@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import Axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const Test = () => {
   const dispatch = useDispatch();
   const details = useSelector(state => state.sync.formInfo.details);
   const title = useSelector(state => state.sync.formInfo.title);
   const story = useSelector(state => state.sync.formInfo.story);
+  const formInfo = useSelector(state => state.sync.formInfo);
   console.log("my info", details);
 
   useEffect(() => {
@@ -22,10 +24,16 @@ const Test = () => {
       value: e.target.value
     });
   };
+  const addObject = e => {
+    e.preventDefault();
+    axiosWithAuth()
+      .post("api/posts", formInfo)
+      .then(res => console.log(res.data));
+  };
 
   return (
     <div>
-      <form>
+      <form onSubmit={addObject}>
         <label>
           Title
           <input
@@ -53,6 +61,7 @@ const Test = () => {
             onChange={handleChange}
           />
         </label>
+        <button>ADD!</button>
       </form>
     </div>
   );
