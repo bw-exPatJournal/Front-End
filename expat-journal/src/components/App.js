@@ -1,7 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PrivateRoute from '../utils/PrivateRoute';
-import logo from './logo.svg';
 import './App.scss';
 
 //Component imports
@@ -14,29 +13,13 @@ function App() {
     <Router>
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <Component/>
-          
-          <p>
-            Edit <code>src/components/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <Switch>
+          <PrivateRoute exact path='/' component={Component}/> 
+          <Route path='/login' component={Login}/>
+          </Switch>
         </header>
       </div>
-      <Switch>
-        <PrivateRoute exact path='/home' component={Component}/> 
-        {/* <Route path='/' component={Component}/> */}
-      </Switch>
-      <Route path = "/edit">
-        <Test/>
-      </Route>
+
      </Router>
   );
 }
