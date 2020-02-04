@@ -12,7 +12,7 @@ const Login = ({status, values, errors, touched}) => {
     //     console.log('status has changed', status);
     //     status && setUsers(info => [...users, status]);
     // }, [status]);
-    console.log(values);
+    // console.log(values);
 
     return(
         <div>
@@ -52,17 +52,17 @@ const FormikLogin= withFormik({
         password: Yup.string().required('Please enter password')
     }),
     handleSubmit(values, {setStatus}){
-        console.log('values object:', values);
+        // console.log('values object:', values);
         axios.post('https://expatjournalbackend.herokuapp.com/api/auth/login', values)
         .then(res => {
             window.localStorage.setItem('token', res.data.token)
-            console.log('values object:', values);
-            console.log('info from api', res);
+            // console.log('values object:', values);
+            // console.log('info from api', res);
             setStatus(res.data)
         })
         .catch(err => {
-            console.log('values object:', values) 
-            console.log(err.response)
+            // console.log('values object:', values) 
+            // console.log(err.response)
         }
            
         );

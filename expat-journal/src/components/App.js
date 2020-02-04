@@ -7,6 +7,7 @@ import './App.scss';
 //Component imports
 import Component from './Component';
 import Login from './Login/Login';
+import Test from './Test';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <Component/>
+          
           <p>
             Edit <code>src/components/App.js</code> and save to reload.
           </p>
@@ -32,6 +34,9 @@ function App() {
         <PrivateRoute exact path='/home' component={Component}/> 
         {/* <Route path='/' component={Component}/> */}
       </Switch>
+      <Route path = "/edit">
+        <Test/>
+      </Route>
      </Router>
   );
 }
