@@ -11,7 +11,7 @@ import {Provider} from 'react-redux';
 const middleware = [thunk, logger]
 
 const store = createStore(rootReducer, applyMiddleware(...middleware));
-console.log('Store:', store)
+// console.log('Store:', store)
 ReactDOM.render(
     <Provider store={store}>
         <App />

@@ -6,6 +6,7 @@ import './App.scss';
 //Component imports
 import Component from './Component';
 import Login from './Login/Login';
+import Test from './Test';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           </Switch>
         </header>
       </div>
+
      </Router>
   );
 }

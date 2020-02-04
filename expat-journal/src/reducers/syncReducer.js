@@ -1,7 +1,12 @@
 import { ACTION_NAME } from "../actions/";
 
 const initialState = {
-  date: Date.now()
+  date: Date.now(),
+  formInfo: {
+    title: "",
+    story: "",
+    details: ""
+  }
 };
 
 export const syncReducer = (state = initialState, action) => {
@@ -10,6 +15,14 @@ export const syncReducer = (state = initialState, action) => {
       return {
         ...state,
         date: action.payload
+      };
+    case "FORM_DATA":
+      return {
+        ...state,
+        formInfo: {
+          ...state.formInfo,
+          [action.name]: action.value
+        }
       };
     default:
       return state;
