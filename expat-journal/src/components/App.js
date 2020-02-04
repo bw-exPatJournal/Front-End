@@ -3,17 +3,19 @@ import logo from './logo.svg';
 import './App.scss';
 import Component from './Component';
 import Register from './Register/Register'
+import Login from './Login/Login'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Component/>
-        <Register/>
+        <Component />
+        <Register />
         <p>
           Edit <code>src/components/App.js</code> and save to reload.
         </p>
+        <Login />
         <a
           className="App-link"
           href="https://reactjs.org"
