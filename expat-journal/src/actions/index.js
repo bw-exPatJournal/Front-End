@@ -11,7 +11,7 @@ export const fetchPosts = () => dispatch => {
 	axiosWithAuth()
 		.get('api/posts')
 		.then(res => dispatch({ type: FETCH_POSTS_SUCCESS, payload: res.data }))
-		.catch(err => dispatch({ type: FETCH_POSTS, payload: err }))
+		.catch(err => dispatch({ type: FETCH_POSTS_ERROR, payload: err }))
 };
 
 // This is a sync action creator

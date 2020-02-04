@@ -1,19 +1,21 @@
-import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { PrivateRoute } from '../../utils/PrivateRoute';
+import React, { useState, useEffect } from 'react';
 import '../App.scss'
 import { connect } from 'react-redux';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
-
+//import icons
+import { FaGlobeAmericas, FaUserCircle } from "react-icons/fa";
+import { IoMdSettings } from 'react-icons/io';
 //import components
-// import FollowerCard from '../GithubFollowers/FollowersCard';
-
+import PhotosWrapper from '../Photos/PhotoWrapper'
+import Loader from 'react-loader-spinner'
 //imported actions
 import { fetchPosts } from '../../actions/index';
 
 const Home = (props) => {
-    const fetchPosts = props.fetchPosts;
-    useEffect(() => {
-        fetchPosts();
-    }, [fetchPosts])
+    const [photos, setPhotos] = useState(true);
+    const [stories, setStories] = useState(false);
     console.log(props)
     const ImgStyles = {
         width: '150px',
@@ -23,35 +25,38 @@ const Home = (props) => {
         margin: '0px'
     }
     return (
-        <div className='Wrapper'>
-            <div className='Menu'>
-                <div className='MenuContentWrapper'>
-                    {/* <img style={ImgStyles} alt={props.GithubData.login} src={props.GithubData.avatar_url} /> */}
-                    <h2>Menu</h2>
-                    <p>Location: </p>
-                    <p></p>
-                    <p>Bio: </p>
-                    <p>Followers: </p>
-                    <p>Following: </p>
+        <Router>
+            <div className='Wrapper'>
+                <div className='Menu'>
+                    <div className='MenuContentWrapper'>
+                        {/* <img style={ImgStyles} alt={props.GithubData.login} src={props.GithubData.avatar_url} /> */}
+                        <h2>Menu</h2>
+                        <p><FaGlobeAmericas className='icon' /> Discover </p>
+                        <p><FaUserCircle className='icon' /> Profile </p>
+                        <p><IoMdSettings className='icon' /> Settings </p>
+                    </div>
                 </div>
-            </div>
-            <div className='Followers'>
-                <div className='title'>
-                    <h2>Followers</h2>
-                </div>
-                <div className='MenuContentWrapper'>
-                    {/* {props.followers.map(item => {
-                        return <FollowerCard handleUserChange={props.handleUserChange} key={item.id} name={item.login} profile={item.html_url} img={item.avatar_url} />
-                    })} */}
-                </div>
-            </div>
-            <div className='Menu'>
-                <div className='UserCardWrapper'>
+                <div className='Photos'>
+                    <div className='toggle_menu'>
+                        <div className='toggle_button'>
+                            <button>Stories</button>
+                        </div>
+                        <div className='toggle_button'>
+                            <button>photos</button>
+                        </div>
+                    </div>
+                    <Route exact path='/home' component={PhotosWrapper} />
+
+
 
                 </div>
-            </div>
+                <div className='Menu'>
+                    <div className='MenuContentWrapper'>
 
-        </div>
+                    </div>
+                </div>
+            </div>
+        </Router>
     );
 
 

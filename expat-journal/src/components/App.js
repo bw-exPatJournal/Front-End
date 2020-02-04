@@ -11,6 +11,9 @@ import Login from './Login/Login';
 import Test from './Test';
 import Home from './Home/Home';
 
+//Icon imports
+import { FaSearch } from 'react-icons/fa'
+
 function App() {
   return (
     <Router>
@@ -20,15 +23,14 @@ function App() {
             <img src={Logo} />
           </div>
           <div className='Menu-Form'>
-            <form onSubmit={e => this.handleUserChange(e, this.state.searchUser)}>
+            <form>
+              <FaSearch className='icon' />
               <input
                 type="text"
-                onChange={(e) => this.handlesChanges(e)}
-                value='Field'
-                placeholder='Search User'
+                value=''
+                placeholder='What are you looking for?'
               />
 
-              <button>submit</button>
             </form>
           </div>
         </header>

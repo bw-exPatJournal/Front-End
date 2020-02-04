@@ -23,7 +23,8 @@ export const asyncReducer = (state = initialState, action) => {
 		case FETCH_POSTS_ERROR:
 			return {
 				...state,
-				error: action.payload
+				error: action.payload,
+				isLoading: false
 			}
 		default:
 			return state;
