@@ -36,6 +36,7 @@ function App() {
         </header>
         <Switch>
           <PrivateRoute exact path='/home' component={Home} />
+          <PrivateRoute exact path='/stories' component={Home} />
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
         </Switch>

@@ -9,6 +9,7 @@ import { FaGlobeAmericas, FaUserCircle } from "react-icons/fa";
 import { IoMdSettings } from 'react-icons/io';
 //import components
 import PhotosWrapper from '../Photos/PhotoWrapper'
+import StoriesWrapper from '../Stories/StoriesWrapper'
 import Loader from 'react-loader-spinner'
 //imported actions
 import { fetchPosts } from '../../actions/index';
@@ -31,16 +32,16 @@ const Home = (props) => {
                     <div className='MenuContentWrapper'>
                         {/* <img style={ImgStyles} alt={props.GithubData.login} src={props.GithubData.avatar_url} /> */}
                         <h2>Menu</h2>
-                        <p><FaGlobeAmericas className='icon' /> Discover </p>
-                        <p><FaUserCircle className='icon' /> Profile </p>
-                        <p><IoMdSettings className='icon' /> Settings </p>
+                        <div><FaGlobeAmericas className='icon' /> Discover</div>
+                        <div><FaUserCircle className='icon' /> divrofile </div>
+                        <div><IoMdSettings className='icon' /> Settings </div>
                     </div>
                 </div>
-                <div className='Photos'>
+                <div className='Container'>
                     <div className='toggle_menu'>
                         <div className={(stories) ? 'toggle_button_on' : 'toggle_button_off'}>
                             {(!stories) ?
-                                <button onClick={() => { setStories(!stories); setPhotos(false); props.history.push('/stories') }}>Stories</button> :
+                                <button onClick={() => { setStories(!stories); setPhotos(false); }}>Stories</button> :
                                 <button disabled>Stories</button>
                             }
 
@@ -48,16 +49,14 @@ const Home = (props) => {
                         <div className={(photos) ? 'toggle_button_on' : 'toggle_button_off'}>
                             {(!photos) ?
 
-                                <button onClick={() => { setPhotos(!photos); setStories(false); props.history.push('/home') }}>photos</button> :
+                                <button onClick={() => { setPhotos(!photos); setStories(false); }}>photos</button> :
 
                                 <button disabled>photos</button>
                             }
                         </div>
                     </div>
-                    <Route exact path='/home' component={PhotosWrapper} />
 
-
-
+                    {(photos) ? <PhotosWrapper /> : <StoriesWrapper />}
                 </div>
                 <div className='Menu'>
                     <div className='MenuContentWrapper'>

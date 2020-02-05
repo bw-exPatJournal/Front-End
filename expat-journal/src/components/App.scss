@@ -131,19 +131,20 @@ a{
       width:50%;
       text-align: left;
     }
-    p{
+    div{
       text-align: center;
       width:50%;
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      padding: 5%;
       .icon{
         padding-right:5%;
       }
     }
   }
 }
-.Photos{
+.Container{
   width:100%;
   display:flex;
   flex-direction:column;
@@ -176,33 +177,50 @@ a{
         color: #BEBEBE;
       }
     }
-  }
+  } //toggle-menu end
   .PhotoWrapper{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
-  }
-  .PhotoCard{
-    width: 350px;
-    height:350px;
-    font-size: .75rem;
-    margin: 1%;
-    z-index:0;
-    img{
+    .PhotoCard{
       width: 350px;
       height:350px;
-      object-fit: cover;
-      object-position: center;
-      margin: 0px;
-      border-radius: 5px;
-    }
-    img:hover{
-      opacity: .75;
-      cursor: pointer;
+      font-size: .75rem;
+      margin: 1%;
+      z-index:0;
+      img{
+        width: 350px;
+        height:350px;
+        object-fit: cover;
+        object-position: center;
+        margin: 0px;
+        border-radius: 5px;
+      }
+      img:hover{
+        opacity: .75;
+        cursor: pointer;
+      }
     }
   }
+  .StoriesWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    .StoryCard{
+      width: 350px;
+      height:350px;
+      font-size: .75rem;
+      margin: 1%;
+      z-index:0;
+      color:black;
+      
+    }
+  }
+   
  
 }
 .ContentWrapper{

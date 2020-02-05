@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react'
-import Photos from './Photos';
+import Stories from './Stories';
 import Loader from 'react-loader-spinner'
 import { connect } from 'react-redux';
 import { fetchPosts } from '../../actions/index'
-const PhotoWrapper = (props) => {
-    console.log('PhotoWrapper Props:', props)
+const StoriesWrapper = (props) => {
+    console.log('StoriesWrapper Props:', props)
     const fetchPosts = props.fetchPosts;
     useEffect(() => {
         fetchPosts();
-    }, [])
+    }, [fetchPosts])
     return (
-        <div className='PhotoWrapper'>
+        <div className='StoriesWrapper'>
             {(props.async.posts.length !== 0) ? props.async.posts.map(item => {
-                return <Photos key={item.id} name={item.title} story={item.story} img={item.photo} />
+                return <Stories key={item.id} name={item.title} story={item.story} details={item.details} traveler={item.traveler_id} img={item.photo} />
             }) : <Loader
                     type="MutatingDots"
                     color="#3C5955"
@@ -37,4 +37,4 @@ export default connect(
     mapStateToProps,
     //place imported actions below
     { fetchPosts }
-)(PhotoWrapper);
+)(StoriesWrapper);
