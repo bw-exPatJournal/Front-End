@@ -55,11 +55,11 @@ const Home = (props) => {
                             <div onClick={() => handleProfile()}><FaUserCircle className='icon' /> Profile </div>
                         </Link>
 
-                        <Link>
+                        <Link to='/settings'>
                             <div><IoMdSettings className='icon' /> Settings </div>
                         </Link>
-                        <Link>
-                            <div onClick={() => window.localStorage.clear()}><IoMdLogOut className='icon' /> Log Out </div>
+                        <Link to='login'>
+                            <div onClick={() => { window.localStorage.clear(); props.history.push('/login') }}><IoMdLogOut className='icon' /> Log Out </div>
                         </Link>
                     </div>
                 </div>

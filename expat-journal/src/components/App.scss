@@ -99,12 +99,7 @@
 
 /* New Styles */
 
-a{
-  text-decoration: none;
-    width: 100%;
-    display: flex;
-    color: #222222;
-}
+
 
 .Logo h1{
   margin-left: 10px;
@@ -125,10 +120,18 @@ a{
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+    a{
+      text-decoration: none;
+        width: 100%;
+        padding: 5%;
+        display: flex;
+        color: #222222;
+    }
     h2{
       width:100%;
       text-align: left;
       padding-left:30px;
+   
     }
     div{
       text-align: center;
@@ -136,11 +139,12 @@ a{
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      padding: 5%;
+      padding: 7%;
       &:hover{
         background:#3C5955;
         color:white;
         cursor: pointer;
+        border-radius:5px;
       }
       .icon{
         padding-right:5%;
@@ -233,6 +237,29 @@ a{
     align-items: center;
     flex-direction: column;
     height:90vh;
+    color:black;
+    .Metrics{
+      display:flex;
+      justify-content: center;
+      p{
+        font-size:.75rem;
+        width:25%;
+        margin: 2% 5%;
+      }
+    }
+    p{
+      font-weight:400;
+      font-size:1.5rem;
+      margin-bottom: 0;
+    }
+    img{
+      width: 150px;
+      height:150px;
+      object-fit: cover;
+      object-position: center;
+      margin: 0px;
+      border-radius: 50%;
+    }
     form{
       display:flex;
       justify-content: center;

@@ -6,10 +6,10 @@ const initialState = {
 	error: '',
 	isLoading: false,
 	user: {
-		name: '',
-		username: '',
-		email: '',
-		password: ''
+		name: 'Mikael Tolskbov',
+		username: 'Mikael',
+		email: 'Mikael@email.com',
+		img_url: 'https://i.pinimg.com/236x/33/d3/83/33d3839c662b18f631d732f38f2c6d3c--russian-man-russian-people.jpg'
 	}
 }
 
