@@ -40,6 +40,7 @@ function App() {
           <PrivateRoute exact path='/profile' component={Home} />
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
+          <PrivateRoute path='/' component={Home} />
         </Switch>
       </div>
 

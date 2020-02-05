@@ -19,7 +19,7 @@ const Home = (props) => {
     const [photos, setPhotos] = useState(true);
     const [stories, setStories] = useState(false);
     const [profile, setProfile] = useState(false);
-    console.log(props)
+    console.log('Home.js Props:', props)
     const ImgStyles = {
         width: '150px',
         objectFit: 'cover',
