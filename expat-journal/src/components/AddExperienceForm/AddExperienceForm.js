@@ -1,21 +1,22 @@
 import React, { useEffect } from "react";
 import Axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import { postData } from "../../actions/index";
+import { connect } from "formik";
 
-const Test = () => {
+const AddExperienceForm = () => {
   const dispatch = useDispatch();
-  const details = useSelector(state => state.sync.formInfo.details);
-  const title = useSelector(state => state.sync.formInfo.title);
-  const story = useSelector(state => state.sync.formInfo.story);
-  const formInfo = useSelector(state => state.sync.formInfo);
-  console.log("my info", details);
+  const details = useSelector(state => state.async.formInfo.details);
+  const title = useSelector(state => state.async.formInfo.title);
+  const story = useSelector(state => state.async.formInfo.story);
+  const formInfo = useSelector(state => state.async.formInfo);
 
-  useEffect(() => {
-    Axios.get("https://expatjournalbackend.herokuapp.com/api/posts").then(res =>
-      console.log("I want this", res)
-    );
-  }, []);
+  // useEffect(() => {
+  //   Axios.get("https://expatjournalbackend.herokuapp.com/api/posts").then(res =>
+  //     console.log("I want this", res)
+  //   );
+  // }, []);
 
   const handleChange = e => {
     dispatch({
@@ -26,9 +27,8 @@ const Test = () => {
   };
   const addObject = e => {
     e.preventDefault();
-    axiosWithAuth()
-      .post("api/posts", formInfo)
-      .then(res => console.log(res.data));
+
+    postData(formInfo);
   };
 
   return (
@@ -66,5 +66,16 @@ const Test = () => {
     </div>
   );
 };
+export default AddExperienceForm;
 
-export default Test;
+// const mapStateToProps = state => {
+//   return {
+//     async: {
+//       title: state.async.title,
+//       story: state.async.story,
+//       details: state.async.details
+//     }
+//   };
+// };
+
+// export default connect(mapStateToProps, { postData })(AddExperienceForm);
