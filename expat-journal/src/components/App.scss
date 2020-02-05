@@ -128,16 +128,21 @@ a{
     align-items: center;
     flex-direction: column;
     h2{
-      width:50%;
+      width:75%;
       text-align: left;
     }
     div{
       text-align: center;
-      width:50%;
+      width:75%;
       display: flex;
       justify-content: flex-start;
       align-items: center;
       padding: 5%;
+      &:hover{
+        background:#3C5955;
+        color:white;
+        cursor: pointer;
+      }
       .icon{
         padding-right:5%;
       }
@@ -211,8 +216,9 @@ a{
     flex-wrap: wrap;
     width: 100%;
     .StoryCard{
-      width: 350px;
-      height:350px;
+      width: 100%;
+      padding: 2%;
+      box-shadow: -4px 5px 14px 0px #0000002b;
       font-size: .75rem;
       margin: 1%;
       z-index:0;
@@ -238,4 +244,12 @@ a{
   color:white;
   width:100%;
   padding-top:100px;
+}
+
+.FormContainer{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }

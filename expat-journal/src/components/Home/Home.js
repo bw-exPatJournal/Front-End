@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 //import icons
 import { FaGlobeAmericas, FaUserCircle } from "react-icons/fa";
-import { IoMdSettings } from 'react-icons/io';
+import { IoMdSettings, IoMdLogOut } from 'react-icons/io';
 //import components
 import PhotosWrapper from '../Photos/PhotoWrapper'
 import StoriesWrapper from '../Stories/StoriesWrapper'
@@ -33,8 +33,9 @@ const Home = (props) => {
                         {/* <img style={ImgStyles} alt={props.GithubData.login} src={props.GithubData.avatar_url} /> */}
                         <h2>Menu</h2>
                         <div><FaGlobeAmericas className='icon' /> Discover</div>
-                        <div><FaUserCircle className='icon' /> divrofile </div>
+                        <div><FaUserCircle className='icon' /> Profile </div>
                         <div><IoMdSettings className='icon' /> Settings </div>
+                        <div onClick={() => window.localStorage.clear()}><IoMdLogOut className='icon' /> Log Out </div>
                     </div>
                 </div>
                 <div className='Container'>
