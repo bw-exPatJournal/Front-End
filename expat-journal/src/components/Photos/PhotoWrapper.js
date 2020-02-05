@@ -29,7 +29,8 @@ const mapStateToProps = state => {
         async: {
             posts: state.async.posts,
             error: state.async.error,
-            isLoading: state.async.isLoading
+            isLoading: state.async.isLoading,
+            user: state.async.user
         }
     }
 }

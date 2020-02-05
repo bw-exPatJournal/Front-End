@@ -4,7 +4,13 @@ import { FETCH_POSTS, FETCH_POSTS_SUCCESS, FETCH_POSTS_ERROR } from '../actions'
 const initialState = {
 	posts: [],
 	error: '',
-	isLoading: false
+	isLoading: false,
+	user: {
+		name: '',
+		username: '',
+		email: '',
+		password: ''
+	}
 }
 
 export const asyncReducer = (state = initialState, action) => {

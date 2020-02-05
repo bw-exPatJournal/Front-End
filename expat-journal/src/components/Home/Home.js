@@ -10,6 +10,7 @@ import { IoMdSettings, IoMdLogOut } from 'react-icons/io';
 //import components
 import PhotosWrapper from '../Photos/PhotoWrapper'
 import StoriesWrapper from '../Stories/StoriesWrapper'
+import Profile from '../Profile/Profile'
 import Loader from 'react-loader-spinner'
 //imported actions
 import { fetchPosts } from '../../actions/index';
@@ -17,6 +18,7 @@ import { fetchPosts } from '../../actions/index';
 const Home = (props) => {
     const [photos, setPhotos] = useState(true);
     const [stories, setStories] = useState(false);
+    const [profile, setProfile] = useState(false);
     console.log(props)
     const ImgStyles = {
         width: '150px',
@@ -25,6 +27,20 @@ const Home = (props) => {
         objectPosition: 'center',
         margin: '0px'
     }
+    const handleProfile = () => {
+        console.log('profile clicked')
+        setPhotos(false);
+        setStories(false);
+        setProfile(true);
+        props.history.push('/profile')
+    }
+    const handleHome = () => {
+        console.log('home clicked')
+        setPhotos(true);
+        setStories(false);
+        setProfile(false);
+        props.history.push('/home')
+    }
     return (
         <Router>
             <div className='Wrapper'>
@@ -32,32 +48,46 @@ const Home = (props) => {
                     <div className='MenuContentWrapper'>
                         {/* <img style={ImgStyles} alt={props.GithubData.login} src={props.GithubData.avatar_url} /> */}
                         <h2>Menu</h2>
-                        <div><FaGlobeAmericas className='icon' /> Discover</div>
-                        <div><FaUserCircle className='icon' /> Profile </div>
-                        <div><IoMdSettings className='icon' /> Settings </div>
-                        <div onClick={() => window.localStorage.clear()}><IoMdLogOut className='icon' /> Log Out </div>
+                        <Link to="/home">
+                            <div onClick={() => handleHome()}><FaGlobeAmericas className='icon' /> Discover</div>
+                        </Link>
+                        <Link to="/profile">
+                            <div onClick={() => handleProfile()}><FaUserCircle className='icon' /> Profile </div>
+                        </Link>
+
+                        <Link>
+                            <div><IoMdSettings className='icon' /> Settings </div>
+                        </Link>
+                        <Link>
+                            <div onClick={() => window.localStorage.clear()}><IoMdLogOut className='icon' /> Log Out </div>
+                        </Link>
                     </div>
                 </div>
+
                 <div className='Container'>
-                    <div className='toggle_menu'>
-                        <div className={(stories) ? 'toggle_button_on' : 'toggle_button_off'}>
-                            {(!stories) ?
-                                <button onClick={() => { setStories(!stories); setPhotos(false); }}>Stories</button> :
-                                <button disabled>Stories</button>
-                            }
+                    {(!profile) ?
+                        <div className='toggle_menu'>
+                            <div className={(stories) ? 'toggle_button_on' : 'toggle_button_off'}>
+                                {(!stories) ?
+                                    <button onClick={() => { setStories(!stories); setPhotos(false); props.history.push('/stories') }}>Stories</button> :
+                                    <button disabled>Stories</button>
+                                }
 
-                        </div>
-                        <div className={(photos) ? 'toggle_button_on' : 'toggle_button_off'}>
-                            {(!photos) ?
+                            </div>
+                            <div className={(photos) ? 'toggle_button_on' : 'toggle_button_off'}>
+                                {(!photos) ?
 
-                                <button onClick={() => { setPhotos(!photos); setStories(false); }}>photos</button> :
+                                    <button onClick={() => { setPhotos(!photos); setStories(false); props.history.push('/home') }}>photos</button> :
 
-                                <button disabled>photos</button>
-                            }
-                        </div>
-                    </div>
+                                    <button disabled>photos</button>
+                                }
+                            </div>
+                        </div> : <></>
+                    }
+                    {(photos) ? <PhotosWrapper /> : <></>}
+                    {(stories) ? <StoriesWrapper /> : <></>}
+                    {(profile) ? <Profile /> : <></>}
 
-                    {(photos) ? <PhotosWrapper /> : <StoriesWrapper />}
                 </div>
                 <div className='Menu'>
                     <div className='MenuContentWrapper'>
@@ -76,7 +106,8 @@ const mapStateToProps = state => {
         async: {
             posts: state.async.posts,
             error: state.async.error,
-            isLoading: state.async.isLoading
+            isLoading: state.async.isLoading,
+            user: state.async.user
         }
     }
 }
