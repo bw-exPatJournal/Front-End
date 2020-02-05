@@ -38,7 +38,7 @@
     .icon{
       color: #BEBEBE;
       width: 100%;
-      padding-right: 15px;
+      padding: 2%;
       
     }
     input{
@@ -151,7 +151,10 @@ a{
     display:flex;
     justify-content: center;
     padding: 5%;
-    .toggle_button{
+    button{
+      cursor: pointer;
+    }
+    .toggle_button_on{
       button{
         width:100px;
         border: none;
@@ -160,6 +163,17 @@ a{
         font-size: 25px;
         text-transform: capitalize;
         color: #3C5955;
+      }
+    }
+    .toggle_button_off{
+      button{
+        width:100px;
+        border: none;
+        background:none;
+        border-bottom: 2px solid #BEBEBE;
+        font-size: 25px;
+        text-transform: capitalize;
+        color: #BEBEBE;
       }
     }
   }

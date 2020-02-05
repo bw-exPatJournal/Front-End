@@ -38,11 +38,20 @@ const Home = (props) => {
                 </div>
                 <div className='Photos'>
                     <div className='toggle_menu'>
-                        <div className='toggle_button'>
-                            <button>Stories</button>
+                        <div className={(stories) ? 'toggle_button_on' : 'toggle_button_off'}>
+                            {(!stories) ?
+                                <button onClick={() => { setStories(!stories); setPhotos(false); props.history.push('/stories') }}>Stories</button> :
+                                <button disabled>Stories</button>
+                            }
+
                         </div>
-                        <div className='toggle_button'>
-                            <button>photos</button>
+                        <div className={(photos) ? 'toggle_button_on' : 'toggle_button_off'}>
+                            {(!photos) ?
+
+                                <button onClick={() => { setPhotos(!photos); setStories(false); props.history.push('/home') }}>photos</button> :
+
+                                <button disabled>photos</button>
+                            }
                         </div>
                     </div>
                     <Route exact path='/home' component={PhotosWrapper} />
