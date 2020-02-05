@@ -20,7 +20,7 @@ function App() {
       <div className="App">
         <header className="Header-Menu">
           <div className='Logo'>
-            <img src={Logo} />
+            <img src={Logo} alt='Capture Logo' />
           </div>
           <div className='Menu-Form'>
             <form>

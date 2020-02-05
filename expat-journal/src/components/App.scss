@@ -107,7 +107,7 @@
 }
 .Menu{
   display: flex;
-  width: 15%;
+  width: 20%;
   justify-content: center;
   padding: 0% 5%;
   padding-top: 2%;
@@ -124,14 +124,18 @@
     a{
       text-decoration: none;
         width: 100%;
-        padding: 5%;
+        padding: 3%;
+        margin-top:3%;
         display: flex;
         color: #222222;
+        font-size:1.2rem;
+        font-weight: 500;
     }
     h2{
       width:100%;
       text-align: left;
       padding-left:30px;
+      font-size:1.5rem;
    
     }
     div{
@@ -295,4 +299,31 @@
   align-items: center;
   flex-direction: column;
   height: 100vh;
+}
+
+.Add_Post_Button{
+  
+    border:0;
+    border-radius:50%;
+    font-weight:600;
+    color:white;
+    position:fixed;
+    margin:5%;
+    background:#38A1DE;
+    top: 5%;
+    right:12.5%;
+    cursor:pointer;
+    font-size:2rem;
+    z-index:1;
+    width:50px;
+    height:50px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 25px;
+    padding: 1%;
+    padding-bottom: 1.25%;
+    &:hover{
+      background:#75cbfd;
+    }
 }

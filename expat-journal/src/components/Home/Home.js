@@ -88,7 +88,12 @@ const Home = (props) => {
                     {(stories) ? <StoriesWrapper /> : <></>}
                     {(profile) ? <Profile /> : <></>}
 
+                    <div className='Add_Post_Button'>
+                        <span>+</span>
+                    </div>
+
                 </div>
+
                 <div className='Menu'>
                     <div className='MenuContentWrapper'>
 
