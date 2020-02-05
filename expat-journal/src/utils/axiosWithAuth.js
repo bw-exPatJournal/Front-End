@@ -1,11 +1,11 @@
-import Axios from 'axios';
+import Axios from "axios";
 
 export const axiosWithAuth = () => {
   return Axios.create({
     // config object
-    baseURL: 'http://localhost:5000',
+    baseURL: "https://expatjournalbackend.herokuapp.com/",
     headers: {
-      Authorization: localStorage.getItem('token')
+      Authorization: localStorage.getItem("token")
     }
   });
 };

@@ -6,17 +6,18 @@ import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './reducers'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 const middleware = [thunk, logger]
 
 const store = createStore(rootReducer, applyMiddleware(...middleware));
-console.log('Store:', store)
+// console.log('Store:', store)
 ReactDOM.render(
     <Provider store={store}>
         <App />
-    </Provider>, 
-document.getElementById('root')
+    </Provider>,
+    document.getElementById('root')
 );
 
 

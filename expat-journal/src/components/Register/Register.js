@@ -4,31 +4,34 @@ import * as Yup from "yup";
 import axios from 'axios';
 
 function RegisterForm({ status, values, errors, touched }) {
-    console.log('Values:',values)
+  console.log('Values:', values)
   return (
-    <Form>
+    <div className='FormContainer'>
+      <Form>
         <div>
-        {touched.name && errors.name && <p>{errors.name}</p>}
-        <Field type='name' name='name' placeholder='Name' />
-      </div>
-      <div>
-        {touched.email && errors.email && <p>{errors.email}</p>}
-        <Field type='email' name='email' placeholder='Email' />
-      </div>
-      <div>
-        {touched.password && errors.password && <p>{errors.password}</p>}
-        <Field type='password' name='password' placeholder='Password' />
-      </div>
-      <div>
-        {touched.username && errors.username&& <p>{errors.username}</p>}
-        <Field type='text' name='username' placeholder='Username' />
-      </div>
-      <div>
-      {touched.bio && errors.bio && <p>{errors.bio}</p>}
-      <Field type='text' name='bio' placeholder='Bio' />
+          {touched.name && errors.name && <p>{errors.name}</p>}
+          <Field type='name' name='name' placeholder='Name' />
+        </div>
+        <div>
+          {touched.email && errors.email && <p>{errors.email}</p>}
+          <Field type='email' name='email' placeholder='Email' />
+        </div>
+        <div>
+          {touched.password && errors.password && <p>{errors.password}</p>}
+          <Field type='password' name='password' placeholder='Password' />
+        </div>
+        <div>
+          {touched.username && errors.username && <p>{errors.username}</p>}
+          <Field type='text' name='username' placeholder='Username' />
+        </div>
+        <div>
+          {touched.bio && errors.bio && <p>{errors.bio}</p>}
+          <Field type='text' name='bio' placeholder='Bio' />
+        </div>
+        <button type='submit'>Register!</button>
+      </Form>
+
     </div>
-      <button type='submit'>Register!</button>
-    </Form>
   );
 }
 
@@ -51,6 +54,7 @@ const FormikRegisterForm = withFormik({
     bio: Yup.string().required('Please enter a bio')
   }),
 
+<<<<<<< HEAD
     handleSubmit(values, {setStatus}){
         console.log('values object:', values);
         axios
@@ -67,5 +71,23 @@ const FormikRegisterForm = withFormik({
     );
     }
   })(RegisterForm);
+=======
+  handleSubmit(values, { setStatus }) {
+    console.log('values object:', values);
+    axios
+      .post('https://expatjournalbackend.herokuapp.com/api/auth/register', values)
+      .then(res => {
+        console.log('values object:', values);
+        console.log('info from api', res);
+
+      })
+      .catch(err => {
+        console.log('values object:', values)
+        console.log(err.response)
+      }
+      );
+  }
+})(RegisterForm);
+>>>>>>> 70e7a6e1dd44c4c809abf98ae16546856fd2545c
 
 export default FormikRegisterForm;
