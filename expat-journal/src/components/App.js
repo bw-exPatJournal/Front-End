@@ -7,6 +7,7 @@ import './App.scss';
 //Component imports
 import Component from './Component';
 import Login from './Login/Login';
+import Register from './Register/Register';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
       <Switch>
         <PrivateRoute exact path='/home' component={Component}/> 
         {/* <Route path='/' component={Component}/> */}
+        <Route path='/register' component={Register} />
       </Switch>
      </Router>
   );
