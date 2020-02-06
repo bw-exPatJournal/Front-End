@@ -8,7 +8,8 @@ import "./App.scss";
 // import Component from "./Component";
 import Login from "./Login/Login";
 import AddExperienceForm from "./AddExperienceForm/AddExperienceForm";
-import CardsInfo from "./CardsInfo";
+import Cards from "./Cards";
+import UpdateExperienceForm from "./AddExperienceForm/UpdateExperienceForm";
 
 function App() {
   return (
@@ -19,10 +20,15 @@ function App() {
         {/* <Route path='/' component={Component}/> */}
       </Switch>
       <Route path="/edit">
-        <CardsInfo />
+        <Cards />
+      </Route>
+      <Route path="/addForm">
         <AddExperienceForm />
       </Route>
-      <Route path="/update-form/:id"></Route>
+      <Route path="/update-form/:id">
+        {" "}
+        <UpdateExperienceForm />
+      </Route>
     </Router>
   );
 }

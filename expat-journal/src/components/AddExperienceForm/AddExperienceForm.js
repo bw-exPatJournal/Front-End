@@ -3,7 +3,8 @@ import Axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { postData } from "../../actions/index";
-import { connect } from "formik";
+import { useHistory } from "react-router-dom";
+import { FORM_DATA, RESET_FORM } from "../../reducers/asyncReducer";
 
 const AddExperienceForm = () => {
   const dispatch = useDispatch();
@@ -18,9 +19,10 @@ const AddExperienceForm = () => {
   //   );
   // }, []);
 
+  const history = useHistory();
   const handleChange = e => {
     dispatch({
-      type: "FORM_DATA",
+      type: FORM_DATA,
       name: e.target.name,
       value: e.target.value
     });
@@ -28,7 +30,8 @@ const AddExperienceForm = () => {
   const addObject = e => {
     e.preventDefault();
 
-    postData(formInfo);
+    dispatch(postData(formInfo));
+    history.push("/edit");
   };
 
   return (
@@ -61,21 +64,10 @@ const AddExperienceForm = () => {
             onChange={handleChange}
           />
         </label>
-        <button>ADD!</button>
+        <button type="submit">ADD!</button>
+        <button onClick={() => dispatch({ type: RESET_FORM })}>reset</button>
       </form>
     </div>
   );
 };
 export default AddExperienceForm;
-
-// const mapStateToProps = state => {
-//   return {
-//     async: {
-//       title: state.async.title,
-//       story: state.async.story,
-//       details: state.async.details
-//     }
-//   };
-// };
-
-// export default connect(mapStateToProps, { postData })(AddExperienceForm);
