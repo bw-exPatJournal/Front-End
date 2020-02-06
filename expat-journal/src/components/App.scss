@@ -153,6 +153,7 @@
       }
       .icon{
         padding-right:5%;
+        width:50px;
       }
     }
   }
@@ -301,6 +302,7 @@
   height: 100vh;
 }
 
+//modal styles
 .Add_Post_Button{
   
     border:0;
@@ -324,6 +326,36 @@
     padding: 1%;
     padding-bottom: 1.25%;
     &:hover{
-      background:#75cbfd;
+      background:#2977a5;
     }
 }
+.modal-background{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  .modal-card-body{
+    color:black;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    form{
+      width:50%;
+      label{
+      display: block;
+      text-align: left;
+      }
+      input{
+        margin: 5% 0;
+      }
+      label{
+        font-weight:600;
+        text-transform: capitalize;
+      }
+    }//form end
+  }//modal-card-body end
+  footer{
+    display:flex;
+    justify-content: center;
+  }
+}//modal-background-end

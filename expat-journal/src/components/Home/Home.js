@@ -11,7 +11,7 @@ import { IoMdSettings, IoMdLogOut } from 'react-icons/io';
 import PhotosWrapper from '../Photos/PhotoWrapper'
 import StoriesWrapper from '../Stories/StoriesWrapper'
 import Profile from '../Profile/Profile'
-import Loader from 'react-loader-spinner'
+import AddPostModal from '../Modals/AddPostModal'
 //imported actions
 import { fetchPosts } from '../../actions/index';
 
@@ -19,7 +19,9 @@ const Home = (props) => {
     const [photos, setPhotos] = useState(true);
     const [stories, setStories] = useState(false);
     const [profile, setProfile] = useState(false);
+    const [modal, setModal] = useState(false);
     console.log('Home.js Props:', props)
+    console.log('Modal State:', modal);
     const ImgStyles = {
         width: '150px',
         objectFit: 'cover',
@@ -40,6 +42,19 @@ const Home = (props) => {
         setStories(false);
         setProfile(false);
         props.history.push('/home')
+    }
+    const toggleModal = () => {
+        console.log('Toggling Modal On');
+        if (!modal) {
+            setModal(true);
+            let selectedModal = document.querySelector('.modal');
+            selectedModal.style.display = 'block';
+        } else {
+            let selectedModal = document.querySelector('.modal');
+            selectedModal.style.display = 'none';
+            setModal(false);
+        }
+
     }
     return (
         <Router>
@@ -88,10 +103,10 @@ const Home = (props) => {
                     {(stories) ? <StoriesWrapper /> : <></>}
                     {(profile) ? <Profile /> : <></>}
 
-                    <div className='Add_Post_Button'>
+                    <div onClick={() => toggleModal()} className='Add_Post_Button'>
                         <span>+</span>
                     </div>
-
+                    <AddPostModal toggleModal={toggleModal} modal={modal} />
                 </div>
 
                 <div className='Menu'>
