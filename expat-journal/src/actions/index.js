@@ -13,6 +13,10 @@ export const START_LOGIN = "START_LOGIN";
 export const START_LOGIN_SUCCESS = "START_LOGIN_SUCCESS";
 export const START_LOGIN_ERROR = 'START_LOGIN_ERROR'
 
+export const DELETE_POST = "DELETE_POST";
+export const DELETE_POST_SUCCESS = "DELETE_POST_SUCCESS";
+export const DELETE_POST_ERROR = 'DELETE_POST_ERROR'
+
 // This is an async action creator.
 export const fetchPosts = () => dispatch => {
 	dispatch({ type: FETCH_POSTS });
@@ -28,6 +32,14 @@ export const newPost = (post) => dispatch => {
 		.post('api/posts', post)
 		.then(res => dispatch({ type: CREATE_POST_SUCCESS, payload: res.data }))
 		.catch(err => dispatch({ type: CREATE_POST_ERROR, payload: err }))
+};
+
+export const deletePost = (id) => dispatch => {
+	dispatch({ type: DELETE_POST });
+	axiosWithAuth()
+		.delete(`api/posts/${id}`)
+		.then(res => console.log(res))
+		.catch(err => dispatch({ type: DELETE_POST_ERROR, payload: err }))
 };
 
 export const loginAction = (user) => dispatch => {

@@ -8,7 +8,10 @@ import {
 	CREATE_POST_ERROR,
 	START_LOGIN,
 	START_LOGIN_SUCCESS,
-	START_LOGIN_ERROR
+	START_LOGIN_ERROR,
+	DELETE_POST,
+	DELETE_POST_SUCCESS,
+	DELETE_POST_ERROR
 } from '../actions';
 
 const initialState = {
@@ -86,6 +89,24 @@ export const asyncReducer = (state = initialState, action) => {
 				isLoading: false
 			}
 		case CREATE_POST_ERROR:
+			return {
+				...state,
+				error: action.payload,
+				isLoading: false
+			}
+		//Delete Post
+		case DELETE_POST:
+			return {
+				...state,
+				isLoading: true,
+			}
+		case DELETE_POST_SUCCESS:
+			return {
+				...state,
+				posts: [action.payload, ...state.posts],
+				isLoading: false
+			}
+		case DELETE_POST_ERROR:
 			return {
 				...state,
 				error: action.payload,

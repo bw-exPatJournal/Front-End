@@ -3,6 +3,8 @@ import { axiosWithAuth } from '../../utils/axiosWithAuth'
 import { FaEllipsisH, FaEdit, FaHeart, FaDownload, FaExclamation } from 'react-icons/fa';
 import EditPostModal from '../Modals/EditPostModal';
 import '../App.scss'
+import { deletePost, fetchPosts } from '../../actions'
+import { connect } from 'react-redux'
 
 const Photos = (props) => {
     const [user, setuser] = useState();
@@ -12,6 +14,16 @@ const Photos = (props) => {
             .then(res => console.log('User ID call response', res))
             .catch(err => console.log(err))
     }, [])
+    //fetches post after deleting 
+    const deletePost = async () => {
+        console.log('deleting...', props.photo.title)
+        await axiosWithAuth()
+            .delete(`/api/posts/${props.photo.id}`)
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+
+        props.fetchPosts()
+    }
     console.log('Photos.js: props:', props)
     const [editModal, setEditModal] = useState(false);
     const [dropdown, setDropDown] = useState(false);
@@ -56,8 +68,8 @@ const Photos = (props) => {
                             <a href="#" class="dropdown-item">
                                 <FaDownload /> Download
                             </a>
-                            <a href="#" class="dropdown-item is-active">
-                                <FaExclamation /> Report
+                            <a onClick={() => deletePost()} class="dropdown-item is-active">
+                                <FaExclamation /> Delete
                             </a>
                         </div>
                     </div>
@@ -72,4 +84,20 @@ const Photos = (props) => {
     )
 }
 
-export default Photos;
+const mapStateToProps = state => {
+    return {
+        async: {
+            posts: state.async.posts,
+            error: state.async.error,
+            currentUserID: state.async.currentUserID,
+            isLoading: state.async.isLoading,
+            user: state.async.user,
+            newPost: state.async.newPost
+        }
+    }
+}
+export default connect(
+    mapStateToProps,
+    //place imported actions below
+    { deletePost, fetchPosts }
+)(Photos);

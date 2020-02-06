@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import Loader from 'react-loader-spinner'
 import { connect } from 'react-redux'
-import { newPost } from '../../actions/index'
+import { newPost, fetchPosts } from '../../actions/index'
 const EditPostModal = (props) => {
     console.log('EditPostModal.js Props:', props)
     const [newPost, setNewPost] = useState({
@@ -25,10 +26,13 @@ const EditPostModal = (props) => {
         })
         console.log(`${e.target.name} is:`, e.target.value);
     }
-    const handleSubmit = e => {
+    const handleSubmit = async (e) => {
         console.log("submitting...")
         e.preventDefault();
-        props.newPost(newPost);
+        await axiosWithAuth()
+            .put(`/api/posts/${props.photo.id}`, newPost)
+            .then(res => console.log('UPDATED POST RESPONSE', res))
+            .catch(err => console.log(err))
         setNewPost({
             ...props.async.newPost,
             title: "",
@@ -36,7 +40,9 @@ const EditPostModal = (props) => {
             story: "",
             details: "",
         })
-        props.toggleEdit();
+        props.fetchPosts(); //updates posts
+        props.setEditModal(!props.editModal);
+        props.toggleDropdown();
     }
     return (
         <div className='editPostModal'>
@@ -116,5 +122,5 @@ const mapStateToProps = state => {
 export default connect(
     mapStateToProps,
     //place imported actions below
-    { newPost }
+    { newPost, fetchPosts }
 )(EditPostModal);
