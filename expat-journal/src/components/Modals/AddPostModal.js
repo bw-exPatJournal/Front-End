@@ -32,7 +32,7 @@ const AddPostModal = (props) => {
             story: "",
             details: "",
         })
-        props.toggleModal();
+        props.setModal(!props.modal);
     }
     return (
         <div className='addPostModal'>

@@ -44,10 +44,11 @@ const EditPostModal = (props) => {
                 <div className="modal-background">
                     <div className="modal-card">
                         <header className="modal-card-head has-background-info">
-                            <p className="modal-card-title has-text-white">Edit New Moment</p>
+                            <p className="modal-card-title has-text-white">Edit Moment</p>
                             <button onClick={() => { props.setEditModal(!props.editModal); props.toggleDropdown() }} className="delete" aria-label="close"></button>
                         </header>
                         <section className="modal-card-body">
+                            <img src={newPost.photo} alt={newPost.title} />
                             <form>
                                 <label>title</label>
                                 <input

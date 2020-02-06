@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { axiosWithAuth } from '../../utils/axiosWithAuth'
 import { FaEllipsisH, FaEdit, FaHeart, FaDownload, FaExclamation } from 'react-icons/fa';
 import EditPostModal from '../Modals/EditPostModal';
 import '../App.scss'
 
 const Photos = (props) => {
-
+    const [user, setuser] = useState();
+    useEffect(() => {
+        axiosWithAuth()
+            .get(`/api/users/${props.photo.traveler_id}`)
+            .then(res => console.log('User ID call response', res))
+            .catch(err => console.log(err))
+    }, [])
     console.log('Photos.js: props:', props)
     const [editModal, setEditModal] = useState(false);
     const [dropdown, setDropDown] = useState(false);
@@ -55,8 +62,11 @@ const Photos = (props) => {
                         </div>
                     </div>
                 </div>
+                <div>
+                    <p>{props.photo.title}</p>
+                </div>
             </div>
-            <img className='Photo' alt={props.photo.name} src={props.photo.photo} />
+            <img className='Photo' alt={props.photo.title} src={props.photo.photo} />
             {(editModal) ? <EditPostModal editModal={editModal} toggleDropdown={toggleDropdown} setEditModal={setEditModal} photo={props.photo} /> : <></>}
         </div>
     )

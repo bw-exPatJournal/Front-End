@@ -208,17 +208,22 @@
       border-radius:5px;
       .PhotoInfo{
         position: absolute;
+        width:350px;
+        height:350px;
         z-index:1;
-        .dropdown-menu{
-          .dropdown-content{
-            background: #000000bd;
-            a{
-              color:white;
-              &:hover{
-                background:black;
+        .dropdown{
+          display:flex;
+          .dropdown-menu{
+            .dropdown-content{
+              background: #000000bd;
+              a{
+                color:white;
+                &:hover{
+                  background:black;
+                }
               }
             }
-          }
+          }//dropdown-menu end
         }
         .dropdown-trigger{
           button{
@@ -238,11 +243,6 @@
         object-position: center;
         margin: 0px;
         border-radius: 5px;
-      }
-      img:hover{
-        opacity: .75;
-        cursor: pointer;
-        z-index:0;
       }
     }
   } //end photo wrapper
@@ -389,3 +389,20 @@
     justify-content: center;
   }
 }//modal-background-end
+
+//Edit Modal
+.editPostModal{
+  .modal{
+    .modal-background{
+      .modal-card{
+        width:50%;
+        .modal-card-body{
+          flex-direction: row;
+          .modal-card-body > form, img {
+            margin:5%;
+          }
+        }
+      }
+    }
+  }
+}
