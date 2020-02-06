@@ -43,19 +43,18 @@ const Home = (props) => {
         setProfile(false);
         props.history.push('/home')
     }
-    const toggleModal = () => {
-        console.log('Toggling Modal On');
-        if (!modal) {
-            setModal(true);
-            let selectedModal = document.querySelector('.modal');
-            selectedModal.style.display = 'block';
-        } else {
-            let selectedModal = document.querySelector('.modal');
-            selectedModal.style.display = 'none';
-            setModal(false);
-        }
-
-    }
+    // const toggleModal = () => {
+    //     console.log('Toggling Modal On');
+    //     if (!modal) {
+    //         let selectedModal = document.querySelector('.addPostModal > .modal');
+    //         selectedModal.style.display = 'block';
+    //         setModal(true);
+    //     } else {
+    //         let selectedModal = document.querySelector('.addPostModal > .modal');
+    //         selectedModal.style.display = 'none';
+    //         setModal(false);
+    //     }
+    // }
     return (
         <Router>
             <div className='Wrapper'>
@@ -103,10 +102,10 @@ const Home = (props) => {
                     {(stories) ? <StoriesWrapper /> : <></>}
                     {(profile) ? <Profile /> : <></>}
 
-                    <div onClick={() => toggleModal()} className='Add_Post_Button'>
+                    <div onClick={() => setModal(!modal)} className='Add_Post_Button'>
                         <span>+</span>
                     </div>
-                    <AddPostModal toggleModal={toggleModal} modal={modal} />
+                    {(modal) ? <AddPostModal setModal={setModal} modal={modal} /> : <></>}
                 </div>
 
                 <div className='Menu'>

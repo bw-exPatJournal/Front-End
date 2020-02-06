@@ -11,8 +11,9 @@ const PhotoWrapper = (props) => {
     }, [])
     return (
         <div className='PhotoWrapper'>
-            {(props.async.posts.length !== 0) ? props.async.posts.map(item => {
-                return <Photos key={item.id} name={item.title} story={item.story} img={item.photo} traveler_id={item.traveler_id} />
+            {(props.async.posts.length !== 0) ? props.async.posts.map((item, index) => {
+                console.log(index);
+                return <Photos key={item.id} index={index} name={item.title} story={item.story} img={item.photo} traveler_id={item.traveler_id} />
             }) : <Loader
                     type="MutatingDots"
                     color="#3C5955"
