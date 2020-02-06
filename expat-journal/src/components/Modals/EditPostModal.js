@@ -6,7 +6,11 @@ const EditPostModal = (props) => {
     console.log('EditPostModal.js Props:', props)
     const [newPost, setNewPost] = useState({
         ...props.async.newPost,
-        traveler_id: JSON.parse(window.localStorage.getItem('userID'))
+        title: props.photo.title,
+        photo: props.photo.photo,
+        story: props.photo.story,
+        details: props.photo.details,
+        traveler_id: props.photo.traveler_id
     })
     console.log('EditPostModal.js newPost State:', newPost)
     // axiosWithAuth()
@@ -41,7 +45,7 @@ const EditPostModal = (props) => {
                     <div className="modal-card">
                         <header className="modal-card-head has-background-info">
                             <p className="modal-card-title has-text-white">Edit New Moment</p>
-                            <button onClick={() => props.setEditModal(!props.editModal)} className="delete" aria-label="close"></button>
+                            <button onClick={() => { props.setEditModal(!props.editModal); props.toggleDropdown() }} className="delete" aria-label="close"></button>
                         </header>
                         <section className="modal-card-body">
                             <form>
@@ -84,7 +88,7 @@ const EditPostModal = (props) => {
                         </section>
                         <footer className="modal-card-foot">
                             <button className="button has-background-info has-text-white" onClick={handleSubmit}>Submit</button>
-                            <button onClick={() => props.setEditModal(!props.editModal)} className="button">Cancel</button>
+                            <button onClick={() => { props.setEditModal(!props.editModal); props.toggleDropdown() }} className="button">Cancel</button>
                         </footer>
                     </div>
                 </div>

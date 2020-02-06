@@ -9,18 +9,8 @@ const Photos = (props) => {
     const [editModal, setEditModal] = useState(false);
     const [dropdown, setDropDown] = useState(false);
     console.log('Edit Modal State:', editModal);
-    const toggleEdit = () => {
-        console.log('Toggling Modal On');
-        if (!editModal) {
-            let selectedModal = document.querySelector('.editPostModal > .modal');
-            selectedModal.style.display = 'block';
-            setEditModal(true);
-        } else {
-            let selectedModal = document.querySelector('.editPostModal > .modal');
-            selectedModal.style.display = 'none';
-            setEditModal(false);
-        }
-    }
+    console.log('Drop Down State:', dropdown);
+
     //toggle dropdown
     const toggleDropdown = () => {
         console.log('Toggling Dropdown On');
@@ -66,8 +56,8 @@ const Photos = (props) => {
                     </div>
                 </div>
             </div>
-            <img className='Photo' alt={props.name} src={props.img} />
-            {(editModal) ? <EditPostModal editModal={editModal} setEditModal={setEditModal} /> : <></>}
+            <img className='Photo' alt={props.photo.name} src={props.photo.photo} />
+            {(editModal) ? <EditPostModal editModal={editModal} toggleDropdown={toggleDropdown} setEditModal={setEditModal} photo={props.photo} /> : <></>}
         </div>
     )
 }

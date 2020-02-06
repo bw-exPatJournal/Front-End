@@ -204,15 +204,14 @@
       height:350px;
       font-size: .75rem;
       margin: 1%;
-      .opacity-75{
-        opacity:.75;
-      }
+      background:black;
+      border-radius:5px;
       .PhotoInfo{
         position: absolute;
         z-index:1;
         .dropdown-menu{
           .dropdown-content{
-            background: #00000045;
+            background: #000000bd;
             a{
               color:white;
               &:hover{
@@ -223,7 +222,7 @@
         }
         .dropdown-trigger{
           button{
-            background: #00000045;
+            background: #000000bd;
             width:50px;
             border: 0;
           }
