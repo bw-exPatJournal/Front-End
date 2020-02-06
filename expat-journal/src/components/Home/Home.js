@@ -110,7 +110,7 @@ const Home = (props) => {
 
                 <div className='Menu'>
                     <div className='MenuContentWrapper'>
-                        <h2>Add New Post</h2>
+
 
                     </div>
                 </div>
