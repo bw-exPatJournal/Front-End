@@ -11,8 +11,8 @@ const StoriesWrapper = (props) => {
     }, [fetchPosts])
     return (
         <div className='StoriesWrapper'>
-            {(props.async.posts.length !== 0) ? props.async.posts.map(item => {
-                return <Stories key={item.id} name={item.title} story={item.story} details={item.details} traveler_id={item.traveler_id} />
+            {(props.async.posts.length !== 0) ? props.async.posts.map((item, index) => {
+                return <Stories key={item.id} index={index} photo={item} />
             }) : <Loader
                     type="MutatingDots"
                     color="#3C5955"
