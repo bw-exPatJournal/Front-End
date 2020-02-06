@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field, yupToFormErrors, prepareDataForValidation } from "formik";
+import { connect } from 'react-redux';
+import { loginAction } from '../../actions';
 import * as Yup from 'yup';
 import axios from 'axios'
 
@@ -51,19 +53,38 @@ const FormikLogin = withFormik({
     }),
     handleSubmit(values, { props }) {
         // console.log('values object:', values);
-        axios.post('https://expatjournalbackend.herokuapp.com/api/auth/login', values)
-            .then(res => {
-                window.localStorage.setItem('token', res.data.token)
-                // console.log('values object:', values);
-                console.log('info from api', res);
-                props.history.push('/home')
-            })
-            .catch(err => {
-                // console.log('values object:', values) 
-                // console.log(err.response)
-            }
+        // axios.post('https://expatjournalbackend.herokuapp.com/api/auth/login', values)
+        //     .then(res => {
+        //         window.localStorage.setItem('token', res.data.token)
+        //         // console.log('values object:', values);
+        //         console.log('info from api', res);
+        //         props.history.push('/home')
+        //     })
+        //     .catch(err => {
+        //         // console.log('values object:', values) 
+        //         // console.log(err.response)
+        //     }
 
-            );
+        //     );
+        console.log('loggin in...:', values)
+        props.loginAction(values);
+        props.history.push('/home')
+
+
     }
 })(Login);
-export default FormikLogin;
+const mapStateToProps = state => {
+    return {
+        async: {
+            posts: state.async.posts,
+            error: state.async.error,
+            isLoading: state.async.isLoading,
+            user: state.async.user
+        }
+    }
+}
+export default connect(
+    mapStateToProps,
+    //place imported actions below
+    { loginAction }
+)(FormikLogin);

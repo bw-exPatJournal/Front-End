@@ -29,8 +29,10 @@ const mapStateToProps = state => {
         async: {
             posts: state.async.posts,
             error: state.async.error,
+            currentUserID: state.async.currentUserID,
             isLoading: state.async.isLoading,
-            user: state.async.user
+            user: state.async.user,
+            newPost: state.async.newPost
         }
     }
 }

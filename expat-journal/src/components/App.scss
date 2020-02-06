@@ -312,7 +312,6 @@
     position:fixed;
     margin:5%;
     background:#38A1DE;
-    top: 5%;
     right:12.5%;
     cursor:pointer;
     font-size:2rem;
@@ -333,27 +332,31 @@
   display:flex;
   justify-content: center;
   align-items: center;
-  .modal-card-body{
-    color:black;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    form{
-      width:50%;
-      label{
-      display: block;
-      text-align: left;
-      }
-      input{
-        margin: 5% 0;
-      }
-      label{
-        font-weight:600;
-        text-transform: capitalize;
-      }
-    }//form end
-  }//modal-card-body end
+  z-index:0;
+  .modal-card{
+    z-index: 1;
+    .modal-card-body{
+      color:black;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      form{
+        width:50%;
+        label{
+        display: block;
+        text-align: left;
+        }
+        input{
+          margin: 5% 0;
+        }
+        label{
+          font-weight:600;
+          text-transform: capitalize;
+        }
+      }//form end
+    }//modal-card-body end
+  }//modal-card end
   footer{
     display:flex;
     justify-content: center;
