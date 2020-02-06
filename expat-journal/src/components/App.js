@@ -43,8 +43,6 @@ function App() {
           <PrivateRoute path='/' component={Home} />
         </Switch>
       </div>
-
-
     </Router>
   );
 }
