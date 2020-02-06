@@ -5,14 +5,16 @@ import { loginAction } from '../../actions';
 import * as Yup from 'yup';
 import axios from 'axios'
 
+const Login = (props) => {
+    console.log(props)
+    //used global state to detect login instead of calling in submithandler
+    //reason: gets stuck due to START_LOGIN_SUCCESS refreshing props 
+    useEffect(() => {
+        if (props.async.isLoggedIn) {
+            props.history.push('/home')
+        };
+    }, [props]);
 
-const Login = ({ status, values, errors, touched }) => {
-    // const [users, setUsers] = useState([]);
-    // useEffect(() => {
-    //     console.log('status has changed', status);
-    //     status && setUsers(info => [...users, status]);
-    // }, [status]);
-    // console.log(values);
 
     return (
         <div className="FormContainer">
@@ -24,7 +26,7 @@ const Login = ({ status, values, errors, touched }) => {
                         name='username'
                         placeholder='Username'
                     />
-                    {touched.username && errors.username && <p>{errors.username}</p>}
+                    {props.touched.username && props.errors.username && <p>{props.errors.username}</p>}
                 </div>
                 <div>
                     <label htmlFor='password'>Password:</label>
@@ -33,7 +35,7 @@ const Login = ({ status, values, errors, touched }) => {
                         name='password'
                         placeholder='Password'
                     />
-                    {touched.password && errors.password && <p>{errors.password}</p>}
+                    {props.touched.password && props.errors.password && <p>{props.errors.password}</p>}
                 </div>
                 <button type='submit'>Log In</button>
             </Form>
@@ -68,9 +70,7 @@ const FormikLogin = withFormik({
         //     );
         console.log('loggin in...:', values)
         props.loginAction(values);
-        props.history.push('/home')
-
-
+        console.log('success!!')
     }
 })(Login);
 const mapStateToProps = state => {
@@ -79,6 +79,7 @@ const mapStateToProps = state => {
             posts: state.async.posts,
             error: state.async.error,
             isLoading: state.async.isLoading,
+            isLoggedIn: state.async.isLoggedIn,
             user: state.async.user
         }
     }

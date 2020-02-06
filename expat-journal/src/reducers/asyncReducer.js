@@ -16,6 +16,7 @@ const initialState = {
 	error: '',
 	currentUserID: '',
 	isLoading: false,
+	isLoggedIn: false,
 	user: {
 		name: 'Mikael Tolskbov',
 		id: '',
@@ -44,6 +45,7 @@ export const asyncReducer = (state = initialState, action) => {
 			return {
 				...state,
 				currentUserID: action.payload,
+				isLoggedIn: true,
 				isLoading: false
 			}
 		case START_LOGIN_ERROR:
