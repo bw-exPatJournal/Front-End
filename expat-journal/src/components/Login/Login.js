@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { loginAction } from '../../actions';
 import * as Yup from 'yup';
 import axios from 'axios'
+import logo from '../../imgs/logo.png'
 
 const Login = (props) => {
     console.log(props)
@@ -18,13 +19,15 @@ const Login = (props) => {
 
     return (
         <div className="FormContainer">
-            <Form>
+            <img src={logo} />
+            <Form className='LoginForm'>
                 <div>
                     <label htmlFor='Username'>Username:</label>
                     <Field
                         type='text'
                         name='username'
                         placeholder='Username'
+                        className='input'
                     />
                     {props.touched.username && props.errors.username && <p>{props.errors.username}</p>}
                 </div>
@@ -33,11 +36,12 @@ const Login = (props) => {
                     <Field
                         type='password'
                         name='password'
+                        className='input'
                         placeholder='Password'
                     />
                     {props.touched.password && props.errors.password && <p>{props.errors.password}</p>}
                 </div>
-                <button type='submit'>Log In</button>
+                <button type='submit' className="button has-background-info has-text-white">Log In</button>
             </Form>
         </div>
     )
@@ -50,8 +54,8 @@ const FormikLogin = withFormik({
         }
     },
     validationSchema: Yup.object().shape({
-        username: Yup.string().required('Please enter username'),
-        password: Yup.string().required('Please enter password')
+        username: Yup.string().required('Username Cannot Be Blank*'),
+        password: Yup.string().required('Password Cannot Be Blank*')
     }),
     handleSubmit(values, { props }) {
         // console.log('values object:', values);

@@ -34,7 +34,7 @@ const Home = (props) => {
         setPhotos(false);
         setStories(false);
         setProfile(true);
-        props.history.push('/profile')
+        props.history.push('/home/profile')
     }
     const handleHome = () => {
         console.log('home clicked')
@@ -99,10 +99,9 @@ const Home = (props) => {
                         </div> : <></>
                     }
                     {/* <Switch>
-
-                        <PrivateRoute path='/home/profile' component={Profile} />
-                        <PrivateRoute path='/home/stories' component={StoriesWrapper} />
-                        <PrivateRoute path='/home/photos' component={PhotosWrapper} />
+                        <PrivateRoute exact path='/home/profile' component={Profile} />
+                        <PrivateRoute exact path='/home/stories' component={StoriesWrapper} />
+                        <PrivateRoute exact path='/home/photos' component={PhotosWrapper} />
                     </Switch> */}
 
 

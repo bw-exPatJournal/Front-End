@@ -27,6 +27,16 @@
   box-shadow: 0px -12px 20px 11px #00000080;
   .Menu-Form{
     margin-right:2%;
+    a{
+      margin:5%;
+      text-transform: uppercase;
+      color:#266e63;
+      font-weight:bold;
+    }
+    span{
+      color: #266e63;
+      font-weight:500;
+    }
     form{
       display: flex;
       justify-content: space-evenly;
@@ -421,6 +431,36 @@
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  background-image: url(../imgs/background.png);
+  background-position: center;
+  background-size:cover;
+  img{
+    margin: 2%;
+  }
+  .LoginForm{
+    padding: 5%;
+    border-radius: 10px;
+    background: #d6d6d659;
+    label{
+      width:100%;
+      float:left;
+      text-align: left;
+      font-weight: 600;
+    }
+    input{
+      margin:2% 0%;
+    }
+    p{
+      margin: 2% 0%;
+      color:red;
+      font-weight:600;
+    }
+    button{
+      width:100%;
+      margin: 1% 0;
+      border: 0;
+    }
+  }
 }
 
 //modal styles

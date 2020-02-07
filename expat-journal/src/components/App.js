@@ -24,13 +24,17 @@ function App() {
           </div>
           <div className='Menu-Form'>
             <a href='/register'>Register</a>
+            <span>or</span>
             <a href='/login'>Login</a>
           </div>
         </header>
 
-        <PrivateRoute path='/' component={Home} />
-        <Route path='/login' component={Login} />
-        <Route path='/register' component={Register} />
+        <Switch>
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/register' component={Register} />
+          <PrivateRoute path='/' component={Home} />
+        </Switch>
+
 
       </div>
     </Router>
