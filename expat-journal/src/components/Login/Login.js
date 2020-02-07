@@ -19,7 +19,10 @@ const Login = (props) => {
 
     return (
         <div className="FormContainer">
-            <img src={logo} />
+            <div className="Logo">
+                <img src={logo} />
+                <h2>Travel Far, Travel Often</h2>
+            </div>
             <Form className='LoginForm'>
                 <div>
                     <label htmlFor='Username'>Username:</label>

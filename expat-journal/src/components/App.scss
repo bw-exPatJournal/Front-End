@@ -445,8 +445,17 @@
   background-image: url(../imgs/background.png);
   background-position: center;
   background-size:cover;
-  img{
+  .Logo{
     margin: 2%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h2{
+      font-size: 1.5rem;
+      font-weight:600;
+      margin: 2% 0%;
+    }
   }
   .LoginForm{
     padding: 5%;
