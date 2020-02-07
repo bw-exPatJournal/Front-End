@@ -21,17 +21,23 @@ const ProfilePhotoWrapper = (props) => {
 
     return (
         <div className='PhotoWrapper'>
-            {(posts.length !== 0) ? posts.map((item, index) => {
-                console.log(posts);
-                return <ProfilePhotos key={item.id} index={index} photo={item} />
-            }) : (posts.length === 0) ? <div className='LoaderContainer'><Loader
-                type="Grid"
-                color="#38A1DE"
-                height={100}
-                width={100}
-                className='Loader'
-                timeout={2000}
-            /> <h2>Nothing To Show! Go Ahead and Add a New Moment!</h2></div> : <></>}
+            {(posts.length !== 0) ?
+                posts.map((item, index) => {
+                    console.log(posts);
+                    return <ProfilePhotos key={item.id} index={index} photo={item} />
+                }) :
+                ((posts.length === 0) ?
+                    <div className='Loader'>
+                        {(props.async.isLoading) ? <Loader
+                            type="Grid"
+                            color="#38A1DE"
+                            height={100}
+                            width={100}
+                            className='Loader'
+                            timeout={2000}
+                        /> : <h2>No Posts! Add A New Moment</h2>}
+                    </div> : <div></div>
+                )}
         </div>
     )
 }
