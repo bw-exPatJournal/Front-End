@@ -64,7 +64,7 @@ const Stories = (props) => {
                             <a class="dropdown-item">
                                 <FaHeart /> Favorite
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href={props.photo.photo} target="_blank" download={props.photo.title} class="dropdown-item">
                                 <FaDownload /> Download
                             </a>
                             <a onClick={() => deletePost()} class="dropdown-item is-active">
