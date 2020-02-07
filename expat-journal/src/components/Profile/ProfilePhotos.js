@@ -6,7 +6,7 @@ import '../App.scss'
 import { deletePost, fetchPosts } from '../../actions'
 import { connect } from 'react-redux'
 
-const Stories = (props) => {
+const ProfilePhotos = (props) => {
     const [user, setuser] = useState();
     useEffect(() => {
         axiosWithAuth()
@@ -24,7 +24,7 @@ const Stories = (props) => {
 
         props.fetchPosts()
     }
-    console.log('Photos.js: props:', props)
+    console.log('ProfilePhotos.js: props:', props)
     const [editModal, setEditModal] = useState(false);
     const [dropdown, setDropDown] = useState(false);
     console.log('Edit Modal State:', editModal);
@@ -37,13 +37,14 @@ const Stories = (props) => {
             setDropDown(true);
             let selectedDropdown = document.querySelectorAll('.dropdown');
             selectedDropdown[props.index].classList.add('is-active');
-
+            let Photo = document.querySelectorAll('.Photo');
+            Photo[props.index].classList.add('opacity-75');
         } else {
             let selectedDropdown = document.querySelectorAll('.dropdown');
             selectedDropdown[props.index].classList.remove('is-active')
             setDropDown(false);
-
-
+            let Photo = document.querySelectorAll('.Photo');
+            Photo[props.index].classList.remove('opacity-75');
         }
     }//end toggleEdit
 
@@ -73,14 +74,11 @@ const Stories = (props) => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className='StoryCard'>
                 <div>
-                    <h2>{props.photo.title}</h2>
-                    <p>{props.photo.details}</p>
+                    <p>{props.photo.title}</p>
                 </div>
-                <img src={props.photo.photo} />
             </div>
+            <img className='Photo' alt={props.photo.title} src={props.photo.photo} />
             {(editModal) ? <EditPostModal editModal={editModal} toggleDropdown={toggleDropdown} setEditModal={setEditModal} photo={props.photo} /> : <></>}
         </div>
     )
@@ -102,4 +100,4 @@ export default connect(
     mapStateToProps,
     //place imported actions below
     { deletePost, fetchPosts }
-)(Stories);
+)(ProfilePhotos);

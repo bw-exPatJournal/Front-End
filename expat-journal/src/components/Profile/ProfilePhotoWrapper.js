@@ -1,19 +1,29 @@
-import React, { useEffect } from 'react'
-import Photos from './Photos';
+import React, { useState, useEffect } from 'react'
+import ProfilePhotos from './ProfilePhotos'
 import Loader from 'react-loader-spinner'
 import { connect } from 'react-redux';
 import { fetchPosts } from '../../actions/index'
-const PhotoWrapper = (props) => {
-    console.log('PhotoWrapper Props:', props)
+const ProfilePhotoWrapper = (props) => {
+    console.log('ProfilePhotoWrapper Props:', props)
+    const [posts, setPosts] = useState([])
+    //grab userID from localstorage
+    const userID = JSON.parse(window.localStorage.getItem('userID'));
+    //fetch posts on mount
     const fetchPosts = props.fetchPosts;
     useEffect(() => {
         fetchPosts();
+        setPosts(props.async.posts.filter(photo => photo.traveler_id === userID));
     }, [])
+    //set posts from redux store to state
+    //filter posts by userID
+
+    console.log('============> USERID is:', userID)
+
     return (
         <div className='PhotoWrapper'>
-            {(props.async.posts.length !== 0) ? props.async.posts.map((item, index) => {
-                console.log(index);
-                return <Photos key={item.id} index={index} photo={item} />
+            {(posts.length !== 0) ? posts.map((item, index) => {
+                console.log(posts);
+                return <ProfilePhotos key={item.id} index={index} photo={item} />
             }) : <Loader
                     type="MutatingDots"
                     color="#3C5955"
@@ -41,4 +51,4 @@ export default connect(
     mapStateToProps,
     //place imported actions below
     { fetchPosts }
-)(PhotoWrapper);
+)(ProfilePhotoWrapper);

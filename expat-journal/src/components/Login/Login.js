@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field, yupToFormErrors, prepareDataForValidation } from "formik";
+import { connect } from 'react-redux';
+import { loginAction } from '../../actions';
 import * as Yup from 'yup';
 import axios from 'axios'
 
+const Login = (props) => {
+    console.log(props)
+    //used global state to detect login instead of calling in submithandler
+    //reason: gets stuck due to START_LOGIN_SUCCESS refreshing props 
+    useEffect(() => {
+        if (props.async.isLoggedIn) {
+            props.history.push('/home')
+        };
+    }, [props]);
 
-const Login = ({ status, values, errors, touched }) => {
-    // const [users, setUsers] = useState([]);
-    // useEffect(() => {
-    //     console.log('status has changed', status);
-    //     status && setUsers(info => [...users, status]);
-    // }, [status]);
-    // console.log(values);
 
     return (
         <div className="FormContainer">
@@ -22,7 +26,7 @@ const Login = ({ status, values, errors, touched }) => {
                         name='username'
                         placeholder='Username'
                     />
-                    {touched.username && errors.username && <p>{errors.username}</p>}
+                    {props.touched.username && props.errors.username && <p>{props.errors.username}</p>}
                 </div>
                 <div>
                     <label htmlFor='password'>Password:</label>
@@ -31,7 +35,7 @@ const Login = ({ status, values, errors, touched }) => {
                         name='password'
                         placeholder='Password'
                     />
-                    {touched.password && errors.password && <p>{errors.password}</p>}
+                    {props.touched.password && props.errors.password && <p>{props.errors.password}</p>}
                 </div>
                 <button type='submit'>Log In</button>
             </Form>
@@ -51,19 +55,37 @@ const FormikLogin = withFormik({
     }),
     handleSubmit(values, { props }) {
         // console.log('values object:', values);
-        axios.post('https://expatjournalbackend.herokuapp.com/api/auth/login', values)
-            .then(res => {
-                window.localStorage.setItem('token', res.data.token)
-                // console.log('values object:', values);
-                console.log('info from api', res);
-                props.history.push('/home')
-            })
-            .catch(err => {
-                // console.log('values object:', values) 
-                // console.log(err.response)
-            }
+        // axios.post('https://expatjournalbackend.herokuapp.com/api/auth/login', values)
+        //     .then(res => {
+        //         window.localStorage.setItem('token', res.data.token)
+        //         // console.log('values object:', values);
+        //         console.log('info from api', res);
+        //         props.history.push('/home')
+        //     })
+        //     .catch(err => {
+        //         // console.log('values object:', values) 
+        //         // console.log(err.response)
+        //     }
 
-            );
+        //     );
+        console.log('loggin in...:', values)
+        props.loginAction(values);
+        console.log('success!!')
     }
 })(Login);
-export default FormikLogin;
+const mapStateToProps = state => {
+    return {
+        async: {
+            posts: state.async.posts,
+            error: state.async.error,
+            isLoading: state.async.isLoading,
+            isLoggedIn: state.async.isLoggedIn,
+            user: state.async.user
+        }
+    }
+}
+export default connect(
+    mapStateToProps,
+    //place imported actions below
+    { loginAction }
+)(FormikLogin);

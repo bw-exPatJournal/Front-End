@@ -8,6 +8,7 @@ import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 import { Provider } from 'react-redux';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import 'bulma/css/bulma.css'
 
 const middleware = [thunk, logger]
 

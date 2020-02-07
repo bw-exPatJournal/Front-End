@@ -20,7 +20,7 @@ function App() {
       <div className="App">
         <header className="Header-Menu">
           <div className='Logo'>
-            <img src={Logo} />
+            <img src={Logo} alt='Capture Logo' />
           </div>
           <div className='Menu-Form'>
             <form>
@@ -40,6 +40,7 @@ function App() {
           <PrivateRoute exact path='/profile' component={Home} />
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
+          <PrivateRoute path='/' component={Home} />
         </Switch>
       </div>
     </Router>
