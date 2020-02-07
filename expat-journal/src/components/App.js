@@ -5,14 +5,11 @@ import './App.scss';
 import Logo from '../imgs/logo.png'
 
 //Component imports
-import Component from './Component';
+
 import Register from './Register/Register'
 import Login from './Login/Login';
-import Test from './Test';
 import Home from './Home/Home';
 
-//Icon imports
-import { FaSearch } from 'react-icons/fa'
 
 function App() {
   return (
