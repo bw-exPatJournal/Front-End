@@ -51,36 +51,36 @@ const Photos = (props) => {
     return (
         <div className='PhotoCard'>
             <div className='PhotoInfo'>
-                <div class="dropdown">
-                    <div class="dropdown-trigger">
-                        <button onClick={() => toggleDropdown()} class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                <div className="dropdown">
+                    <div className="dropdown-trigger">
+                        <button onClick={() => toggleDropdown()} className="button" aria-haspopup="true" aria-controls="dropdown-menu">
                             <span><FaEllipsisH className='icon' /></span>
                         </button>
                     </div>
-                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                        <div class="dropdown-content">
-                            <a onClick={() => setEditModal(!editModal)} class="dropdown-item">
+                    <div className="dropdown-menu" id="dropdown-menu" role="menu">
+                        <div className="dropdown-content">
+                            <a onClick={() => setEditModal(!editModal)} className="dropdown-item">
                                 <FaEdit /> Edit Moment
                             </a>
-                            <a class="dropdown-item">
+                            <a className="dropdown-item">
                                 <FaHeart /> Favorite
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="#" className="dropdown-item">
                                 <FaDownload /> Download
                             </a>
-                            <a onClick={() => deletePost()} class="dropdown-item is-active">
+                            <a onClick={() => deletePost()} className="dropdown-item is-active">
                                 <FaExclamation /> Delete
                             </a>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <span class="tag is-dark">
 
-                        <h3>{props.photo.title}</h3>
+                <div className="photo-title">
 
-                    </span>
+                    <h3>{props.photo.title}</h3>
+
                 </div>
+
             </div>
             <img className='Photo' alt={props.photo.title} src={props.photo.photo} />
             {(editModal) ? <EditPostModal editModal={editModal} toggleDropdown={toggleDropdown} setEditModal={setEditModal} photo={props.photo} /> : <></>}

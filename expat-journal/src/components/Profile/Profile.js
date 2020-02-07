@@ -21,10 +21,11 @@ const Profile = (props) => {
             <img src={props.async.user.img_url} alt={props.async.user.name}></img>
             <h1>{user.name}</h1>
             <div className='Metrics'>
-                <p>Total Posts: 14</p>
-                <p>1,000 followers</p>
-                <p>500 Following</p>
+                <p><b>0</b> Posts</p>
+                <p><b>0</b> Followers</p>
+                <p><b>0</b> Following</p>
             </div>
+            <p>{user.bio}</p>
             <ProfilePhotoWrapper />
         </div>
     )

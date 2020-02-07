@@ -231,6 +231,9 @@
         z-index:1;
         .dropdown{
           display:flex;
+          .photo-title{
+            width:50%;
+          }
           .dropdown-menu{
             .dropdown-content{
               background: #000000bd;
@@ -363,6 +366,8 @@
     .Metrics{
       display:flex;
       justify-content: center;
+      width:300px;
+      margin-bottom:2%;
       p{
         font-size:.75rem;
         width:25%;

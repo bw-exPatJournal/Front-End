@@ -25,7 +25,7 @@ const initialState = {
 		id: '',
 		username: 'Mikael',
 		email: 'Mikael@email.com',
-		img_url: 'https://i.pinimg.com/236x/33/d3/83/33d3839c662b18f631d732f38f2c6d3c--russian-man-russian-people.jpg'
+		img_url: 'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fweb.richmond.k12.va.us%2Fportals%2F14%2Fassets%2Fimages%2Fuser-avatar-placeholder.png&f=1&nofb=1'
 	},
 	newPost: {
 		title: "",
