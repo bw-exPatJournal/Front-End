@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { axiosWithAuth } from '../../utils/axiosWithAuth'
 import { connect } from 'react-redux';
 import { fetchPosts } from '../../actions/index'
@@ -6,14 +6,20 @@ import ProfilePhotoWrapper from './ProfilePhotoWrapper'
 
 const Profile = (props) => {
     console.log('Profile Props:', props.async.user.img_url)
-    axiosWithAuth()
-        .get('https://expatjournalbackend.herokuapp.com/api/users/')
-        .then(res => console.log('User Objects', res.data))
-        .catch(err => console.log(err))
+    const userID = JSON.parse(window.localStorage.getItem('userID'));
+    const [user, setUser] = useState([])
+    useEffect(() => {
+        axiosWithAuth()
+            .get(`/api/users/${userID}`)
+            .then(res => {
+                setUser(res.data)
+            })
+            .catch(err => console.log(err))
+    }, [])
     return (
         <div className='Profile'>
             <img src={props.async.user.img_url} alt={props.async.user.name}></img>
-            <p>{props.async.user.name}</p>
+            <h1>{user.name}</h1>
             <div className='Metrics'>
                 <p>Total Posts: 14</p>
                 <p>1,000 followers</p>

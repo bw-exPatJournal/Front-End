@@ -24,13 +24,14 @@ const ProfilePhotoWrapper = (props) => {
             {(posts.length !== 0) ? posts.map((item, index) => {
                 console.log(posts);
                 return <ProfilePhotos key={item.id} index={index} photo={item} />
-            }) : <Loader
-                    type="MutatingDots"
-                    color="#3C5955"
-                    height={100}
-                    width={100}
-                    timeout={3000}
-                />}
+            }) : (posts.length === 0) ? <div className='LoaderContainer'><Loader
+                type="Grid"
+                color="#38A1DE"
+                height={100}
+                width={100}
+                className='Loader'
+                timeout={2000}
+            /> <h2>Nothing To Show! Go Ahead and Add a New Moment!</h2></div> : <></>}
         </div>
     )
 }

@@ -14,11 +14,11 @@ const StoriesWrapper = (props) => {
             {(props.async.posts.length !== 0) ? props.async.posts.map((item, index) => {
                 return <Stories key={item.id} index={index} photo={item} />
             }) : <Loader
-                    type="MutatingDots"
-                    color="#3C5955"
+                    type="Grid"
+                    color="#38A1DE"
                     height={100}
                     width={100}
-                    timeout={3000}
+                    className='Loader'
                 />}
         </div>
     )
