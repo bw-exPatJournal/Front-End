@@ -75,7 +75,11 @@ const Photos = (props) => {
                     </div>
                 </div>
                 <div>
-                    <p>{props.photo.title}</p>
+                    <span class="tag is-dark">
+
+                        <h3>{props.photo.title}</h3>
+
+                    </span>
                 </div>
             </div>
             <img className='Photo' alt={props.photo.title} src={props.photo.photo} />

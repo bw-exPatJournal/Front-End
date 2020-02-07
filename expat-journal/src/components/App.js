@@ -27,14 +27,11 @@ function App() {
             <a href='/login'>Login</a>
           </div>
         </header>
-        <Switch>
-          <PrivateRoute exact path='/home' component={Home} />
-          <PrivateRoute exact path='/stories' component={Home} />
-          <PrivateRoute exact path='/profile' component={Home} />
-          <Route path='/login' component={Login} />
-          <Route path='/register' component={Register} />
-          <PrivateRoute path='/' component={Home} />
-        </Switch>
+
+        <PrivateRoute path='/' component={Home} />
+        <Route path='/login' component={Login} />
+        <Route path='/register' component={Register} />
+
       </div>
     </Router>
   );

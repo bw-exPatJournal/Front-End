@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import { PrivateRoute } from '../../utils/PrivateRoute';
+import PrivateRoute from '../../utils/PrivateRoute';
 import React, { useState, useEffect } from 'react';
 import '../App.scss'
 import { connect } from 'react-redux';
@@ -41,7 +41,7 @@ const Home = (props) => {
         setPhotos(true);
         setStories(false);
         setProfile(false);
-        props.history.push('/home')
+        props.history.push('/home/photos')
     }
     // const toggleModal = () => {
     //     console.log('Toggling Modal On');
@@ -62,14 +62,14 @@ const Home = (props) => {
                     <div className='MenuContentWrapper'>
                         {/* <img style={ImgStyles} alt={props.GithubData.login} src={props.GithubData.avatar_url} /> */}
                         <h2>Menu</h2>
-                        <Link to="/home">
+                        <Link to="/home/photos">
                             <div onClick={() => handleHome()}><FaGlobeAmericas className='icon' /> Discover</div>
                         </Link>
-                        <Link to="/profile">
+                        <Link to="/home/profile">
                             <div onClick={() => handleProfile()}><FaUserCircle className='icon' /> Profile </div>
                         </Link>
 
-                        <Link to='/settings'>
+                        <Link to='/home/settings'>
                             <div><IoMdSettings className='icon' /> Settings </div>
                         </Link>
                         <Link to='login'>
@@ -83,7 +83,7 @@ const Home = (props) => {
                         <div className='toggle_menu'>
                             <div className={(stories) ? 'toggle_button_on' : 'toggle_button_off'}>
                                 {(!stories) ?
-                                    <button onClick={() => { setStories(!stories); setPhotos(false); props.history.push('/stories') }}>Stories</button> :
+                                    <button onClick={() => { setStories(!stories); setPhotos(false); props.history.push('/home/stories') }}>Stories</button> :
                                     <button disabled>Stories</button>
                                 }
 
@@ -91,13 +91,21 @@ const Home = (props) => {
                             <div className={(photos) ? 'toggle_button_on' : 'toggle_button_off'}>
                                 {(!photos) ?
 
-                                    <button onClick={() => { setPhotos(!photos); setStories(false); props.history.push('/home') }}>photos</button> :
+                                    <button onClick={() => { setPhotos(!photos); setStories(false); props.history.push('/home/photos') }}>photos</button> :
 
                                     <button disabled>photos</button>
                                 }
                             </div>
                         </div> : <></>
                     }
+                    {/* <Switch>
+
+                        <PrivateRoute path='/home/profile' component={Profile} />
+                        <PrivateRoute path='/home/stories' component={StoriesWrapper} />
+                        <PrivateRoute path='/home/photos' component={PhotosWrapper} />
+                    </Switch> */}
+
+
                     {(photos) ? <PhotosWrapper /> : <></>}
                     {(stories) ? <StoriesWrapper /> : <></>}
                     {(profile) ? <Profile /> : <></>}
