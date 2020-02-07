@@ -239,11 +239,22 @@
         width:350px;
         height:350px;
         z-index:1;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        .photo-title{
+          display:flex;
+          justify-content: center;
+          margin: 5%;
+          h3{
+            width: 50%;
+            padding: 2%;
+            background: #000000bd;
+            border-radius: 5px;
+          }
+        }
         .dropdown{
           display:flex;
-          .photo-title{
-            width:50%;
-          }
           .dropdown-menu{
             .dropdown-content{
               background: #000000bd;

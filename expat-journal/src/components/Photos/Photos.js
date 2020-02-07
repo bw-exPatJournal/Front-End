@@ -65,7 +65,7 @@ const Photos = (props) => {
                             <a className="dropdown-item">
                                 <FaHeart /> Favorite
                             </a>
-                            <a href="#" className="dropdown-item">
+                            <a href={props.photo.photo} target="_blank" download={props.photo.title} className="dropdown-item">
                                 <FaDownload /> Download
                             </a>
                             <a onClick={() => deletePost()} className="dropdown-item is-active">
