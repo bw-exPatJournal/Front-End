@@ -23,15 +23,8 @@ function App() {
             <img src={Logo} alt='Capture Logo' />
           </div>
           <div className='Menu-Form'>
-            <form>
-              <FaSearch className='icon' />
-              <input
-                type="text"
-                value=''
-                placeholder='What are you looking for?'
-              />
-
-            </form>
+            <a href='/register'>Register</a>
+            <a href='/login'>Login</a>
           </div>
         </header>
         <Switch>
