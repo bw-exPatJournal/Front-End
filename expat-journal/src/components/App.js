@@ -9,7 +9,8 @@ import Logo from '../imgs/logo.png'
 import Register from './Register/Register'
 import Login from './Login/Login';
 import Home from './Home/Home';
-
+// //logs user out after 30 minutes
+// setTimeout(() => { localStorage.clear() }, 1800000);
 
 function App() {
   return (
